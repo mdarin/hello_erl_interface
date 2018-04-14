@@ -1,0 +1,9 @@
+ei lib test
+
+for build just put
+make
+
+and run bu
+./eitest
+
+demo output should appear

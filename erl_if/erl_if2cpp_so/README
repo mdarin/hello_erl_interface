@@ -1,0 +1,58 @@
+start empd at the bebining
+$epmd -daemon
+$epmd -names
+epmd: up and running on port 4369 with data:
+
+then cd /to/dir/with/your/binaries
+and start cnode on whatever prot that is not egaged
+$./testgw 34526
+...
+
+for start erlang node(I had got a trouble with communicate)
+erl -name enode@127.0.0.1 -setcookie cookie -start_epmd true
+
+for build type this commands:
+
+make all
+make ref
+./testdcl
+
+well, yuo should see this output
+
+our factoru has got : 0 entities now
+
+      ****
+    *      *
+   *        *
+   *        *
+   *        *
+    *      *
+      ****
+
+new one appiered: 1 entity now
+
+    *********
+    *       *
+    *       *
+    *       *
+    *       *
+    *********
+
+anoter one: 2 entities now
+       *       
+      * *      
+     *   *     
+    *     *    
+   *       *   
+  *         *  
+ * * * * * * * 
+and last one: 3 entities now
+
+
+
+
+Something went wrong?
+when makeing try
+check .so libs are compiled success
+check is there links to this libs
+fix the truble if needed

@@ -1,0 +1,45 @@
+for build type this commands:
+
+make all
+make ref
+./testdcl
+
+well, yuo should see this output
+
+our factoru has got : 0 entities now
+
+      ****
+    *      *
+   *        *
+   *        *
+   *        *
+    *      *
+      ****
+
+new one appiered: 1 entity now
+
+    *********
+    *       *
+    *       *
+    *       *
+    *       *
+    *********
+
+anoter one: 2 entities now
+       *       
+      * *      
+     *   *     
+    *     *    
+   *       *   
+  *         *  
+ * * * * * * * 
+and last one: 3 entities now
+
+
+
+
+Something goes wrong?
+when makeing try
+check .so libs are compiled success
+check is there links to this libs
+fix the truble if needed

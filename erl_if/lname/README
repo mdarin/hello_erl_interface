@@ -1,0 +1,36 @@
+at the beginig
+cd /path/to/cnode_and_erlfiles/
+
+for compile put this command
+
+make
+
+start cnode on whatever free potr
+you shoul check it by netstat for example
+here I have started it on 34561
+./cnode 34561 
+inet addr -> 127.0.0.1
+initialize...
+node
+socket
+publish
+accept
+
+this output has appeared
+
+-----
+Note. I had started this example localy, bouth nodes were on the same host.
+And binaries were in the same directory too.
+-----
+then start the erlnag node
+$ erl -name enode@127.0.0.1 -setcookie cookie
+>net_kernel:hidden_connect_node('cnode@127.0.0.1').
+true
+(enode@127.0.0.1)2> veil:foo(5).
+veil:foo(5)
+25
+(enode@127.0.0.1)3> veil:bar(5).
+veil:bar(5)
+10
+
+works! :)

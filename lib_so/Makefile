@@ -1,0 +1,34 @@
+#
+# Dynamically Linked "Shared Object" Libraries: (.so) 
+#
+prog: shared
+	gcc -Wall -L/tmp/lib prog.c -lctest -o prog
+# Generate the shared library: 
+#		gcc -shared -Wl,-soname,libctest.so.1 -o libctest.so.1.0 ctest1.o ctest2.o
+shared: lib
+	gcc -shared -Wl,-soname,libctest.so.1 -o libctest.so.1.0 ctest1.o ctest2.o
+# Compile the library functions: 
+# 	gcc -Wall -fPIC -c ctest1.c ctest2.c
+# This generates the library libctest.so.1.0
+lib:
+	gcc -Wall -fPIC -c ctest1.c ctest2.c
+# Move to lib/ directory:
+#    sudo mv libctest.so.1.0 /opt/lib
+#    sudo ln -sf /opt/lib/libctest.so.1.0 /opt/lib/libctest.so.1
+#    sudo ln -sf /opt/lib/libctest.so.1 /opt/lib/libctest.so
+install:
+	mv libctest.so.1.0 /tmp/lib
+	ln -sf /tmp/lib/libctest.so.1.0 /tmp/lib/libctest.so.1
+	ln -sf /tmp/lib/libctest.so.1	/tmp/lib/libctest.so
+# Configure the library path (see below and choose one of three mechanisms).
+# In this example we set the environment variable: 
+# export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/opt/lib
+
+# I put the command into prompt
+#	echo $LD_LIBRARY_PATH:/tmp/lib
+
+clean:
+	rm prog
+	rm *.o
+	rm /tmp/lib/*
+
